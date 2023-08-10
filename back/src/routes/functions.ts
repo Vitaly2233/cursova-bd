@@ -28,7 +28,6 @@ const setFunctionsRoutes = (app) => {
         const result = await client.raw(
           `SELECT * FROM calculate_order_total(${req.query.goods_id})`
         );
-        console.log("🚀 ~ file: functions.ts:32 ~ result.rows[0]:", result.rows[0])
         res.status(200).send(result.rows[0].calculate_order_total);
       } catch (e) {
         next(e);
